@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1"/>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0"/>
+    <PackageReference Include="FluentAssertions" Version="6.7.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0"/>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0"/>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.6"/>
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters.Abstractions" Version="7.0.6"/>
+    <PackageReference Include="Kindred.Infrastructure.Hosting.WebApi" Version="3.1.30"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Abstractions\Kindred.Rewards.Plugin.Base.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Kindred.Rewards.Core\Kindred.Rewards.Core.csproj"/>
+  </ItemGroup>
+
+</Project>

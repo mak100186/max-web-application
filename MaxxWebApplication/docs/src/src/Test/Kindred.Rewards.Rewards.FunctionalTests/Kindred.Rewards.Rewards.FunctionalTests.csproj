@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+		<NoWarn>1701;1702;CS0618;NU1803</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="appsettings.Development.json" />
+		<None Remove="appsettings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<SpecFlowObsoleteCodeBehindFiles Remove="Features\ClaimLifecycle.feature.cs" />
+		<SpecFlowObsoleteCodeBehindFiles Remove="Features\FreeBet\Settlement\SettleRewards.feature.cs" />
+		<SpecFlowObsoleteCodeBehindFiles Remove="Features\Profitboost\Variants\ProfitboostWithMinimumOddsConfigured - Copy.feature.cs" />
+		<SpecFlowObsoleteCodeBehindFiles Remove="Features\PromotionTemplate.feature.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="appsettings.Development.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentAssertions" Version="6.7.0" />
+		<PackageReference Include="NUnit" Version="3.13.3" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+		<PackageReference Include="NunitXml.TestLogger" Version="3.0.117" />
+		<PackageReference Include="SpecFlow" Version="3.9.74" />
+		<PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
+		<PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
+		<PackageReference Include="System.ValueTuple" Version="4.5.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+		<PackageReference Include="Kindred.Infrastructure.Core.Configuration" Version="3.1.2" />
+		<PackageReference Include="Kindred.Infrastructure.Core.Extensions" Version="3.1.2" />
+		<PackageReference Include="Kindred.Infrastructure.Core.NUnit" Version="3.1.2" />
+		<PackageReference Include="WireMock.Net.StandAlone" Version="1.5.13" /> 
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Kindred.Rewards.Rewards.Tests.Common\Kindred.Rewards.Rewards.Tests.Common.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Features\FreeBet\Settlement\SettleRewards.feature.cs">
+		  <DependentUpon>%(Filename)</DependentUpon>
+		</Compile>
+		<Compile Update="Features\Profitboost\Settlement\SettleRewards.feature.cs">
+			<DependentUpon>SettleRewards.feature</DependentUpon>
+		</Compile>
+		<Compile Update="Features\Profitboost\ProfitboostBonus.feature.cs">
+			<DependentUpon>ProfitboostBonus.feature</DependentUpon>
+		</Compile>
+		<Compile Update="Features\Profitboost\Variants\ProfitboostWithMinimumCompoundOddsConfigured.feature.cs">
+		  <DependentUpon>ProfitboostWithMinimumCompoundOddsConfigured.feature</DependentUpon>
+		</Compile>
+		<Compile Update="Features\Profitboost\ProfitboostPromotion.feature.cs">
+			<DependentUpon>ProfitboostPromotion.feature</DependentUpon>
+		</Compile>
+		<Compile Update="Features\UniboostReload\UniboostReloadBonus.feature.cs">
+			<DependentUpon>UniboostReloadBonus.feature</DependentUpon>
+		</Compile>
+		<Compile Update="Features\UniboostReload\UniboostReloadPromotion.feature.cs">
+			<DependentUpon>UniboostReloadPromotion.feature</DependentUpon>
+		</Compile>
+		<Compile Update="Features\Template\RewardTemplate.feature.cs">
+			<DependentUpon>RewardTemplate.feature</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<SpecFlowFeatureFiles Update="Features\FreeBet\Settlement\SettleRewards.feature">
+		  <Visible>$(UsingMicrosoftNETSdk)</Visible>
+		  <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+		</SpecFlowFeatureFiles>
+		<SpecFlowFeatureFiles Update="Features\Profitboost\Settlement\SettleRewards.feature">
+			<Visible>$(UsingMicrosoftNETSdk)</Visible>
+			<CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+		</SpecFlowFeatureFiles>
+		<SpecFlowFeatureFiles Update="Features\Profitboost\ProfitboostBonus.feature">
+			<Visible>$(UsingMicrosoftNETSdk)</Visible>
+			<CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+		</SpecFlowFeatureFiles>
+		<SpecFlowFeatureFiles Update="Features\Profitboost\Variants\ProfitboostWithMinimumCompoundOddsConfigured.feature">
+		  <Visible>$(UsingMicrosoftNETSdk)</Visible>
+		  <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+		</SpecFlowFeatureFiles>
+		<SpecFlowFeatureFiles Update="Features\Profitboost\ProfitboostPromotion.feature">
+			<Visible>$(UsingMicrosoftNETSdk)</Visible>
+			<CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+		</SpecFlowFeatureFiles>
+		<SpecFlowFeatureFiles Update="Features\UniboostReload\UniboostReloadBonus.feature">
+			<Visible>$(UsingMicrosoftNETSdk)</Visible>
+			<CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+		</SpecFlowFeatureFiles>
+		<SpecFlowFeatureFiles Update="Features\UniboostReload\UniboostReloadPromotion.feature">
+			<Visible>$(UsingMicrosoftNETSdk)</Visible>
+
+			<CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+		</SpecFlowFeatureFiles>
+		<SpecFlowFeatureFiles Update="Features\Template\RewardTemplate.feature">
+			<Visible>$(UsingMicrosoftNETSdk)</Visible>
+			<CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+		</SpecFlowFeatureFiles>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Features\Profitboost\Claiming\" />
+	  <Folder Include="Features\Reward\Management\" />
+	  <Folder Include="Features\UniboostReload\Entitlement\" />
+	</ItemGroup>
+
+</Project>

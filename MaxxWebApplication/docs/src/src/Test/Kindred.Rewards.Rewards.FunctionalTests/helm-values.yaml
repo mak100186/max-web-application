@@ -1,0 +1,6 @@
+acceptanceTests:
+  enabled: true
+  appContainer:
+    env:
+    - name: appsettings__webApiUrl
+      value: ${APP_URL}/

@@ -1,0 +1,18 @@
+externalSecrets:
+  data:
+${POSTGRES_VAULT_SECRETS}
+${KAFKA_VAULT_SECRETS}
+
+efMigrate:
+  enabled: true
+  appContainer:
+    env:
+    - name: appSettings__webApiUrl
+      value: ${APP_URL}/
+
+istio:
+  authorization:
+    enabled: true
+    when:
+      - key: source.namespace
+        values: ["istio-system", "${DEPLOY_NAMESPACE}", "bet-exp", "chimera"]
