@@ -85,7 +85,7 @@ public class FileService : IFileService
 
             var content = new MemoryStream(file.Result.FileData);
             var path = Path.Combine(
-               Directory.GetCurrentDirectory(), "../../FileDownloaded",
+               Directory.GetCurrentDirectory(), "../../.downloads",
                file.Result.FileName);
 
             await CopyStream(content, path);

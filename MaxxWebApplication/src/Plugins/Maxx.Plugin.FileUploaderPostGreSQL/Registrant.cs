@@ -21,8 +21,8 @@ public class Registrant : IPluginRegistrant
         mvcBuilder.Services.AddDbContext<DbContextClass>();
         mvcBuilder.Services.AddScoped<IFileService, FileService>();
 
-        mvcBuilder.Services.AddHealthChecks()
-            .AddDbContextCheck<DbContextClass>();
+        //mvcBuilder.Services.AddHealthChecks()
+        //    .AddDbContextCheck<DbContextClass>();
 
         return mvcBuilder;
     }

@@ -53,34 +53,18 @@ public static class ServiceRegistrations
         return app;
     }
 
+    #region plugin loading
+
     public static IApplicationBuilder ConfigureApp(this IApplicationBuilder app)
     {
         var webApp = (WebApplication)app;
-        var healthProbe = new HealthProbe();
-        var configuration = webApp.Configuration;
+        var healthProbe = webApp.Services.GetRequiredService<IHealthProbe>();
+        var appConfigurants = webApp.Services.GetRequiredService<IEnumerable<IAppConfigurant>>();
 
-        var pluginPaths = configuration.GetSection("appsettings:pluginPaths").Get<string[]>();
-
-        foreach (var pluginPath in pluginPaths)
+        foreach (var appConfigurant in appConfigurants)
         {
             try
             {
-                var pluginAssembly = LoadPlugin(pluginPath);
-
-                var appConfigurantTypeName = pluginAssembly
-                    .GetTypes()
-                    .Single(t => t.GetInterfaces().Any(i => i.Name == nameof(IAppConfigurant)))
-                    .FullName;
-
-                if (string.IsNullOrWhiteSpace(appConfigurantTypeName))
-                {
-                    Log.Information("No configurant found in {pluginPath}", pluginPath);
-
-                    continue;
-                }
-
-                var appConfigurant = pluginAssembly.CreateInstance<IAppConfigurant>(appConfigurantTypeName);
-
                 appConfigurant.Configure(webApp);
             }
             catch (Exception e)
@@ -90,6 +74,7 @@ public static class ServiceRegistrations
             }
         }
 
+
         if (Environment.GetCommandLineArgs().Contains("--migrate"))
         {
             Environment.Exit(0);
@@ -98,14 +83,15 @@ public static class ServiceRegistrations
         return app;
     }
 
-    #region plugin loading
-
     private static IServiceCollection LoadPlugins(this IServiceCollection services, ConfigurationManager configuration, IMvcBuilder mvcBuilder)
     {
         var healthProbe = new HealthProbe();
         services.AddSingleton<IHealthProbe>(healthProbe);
 
         var pluginPaths = configuration.GetSection("appsettings:pluginPaths").Get<string[]>();
+
+        var appConfigurants = new List<IAppConfigurant>();
+        services.AddSingleton<IEnumerable<IAppConfigurant>>(appConfigurants);
 
         foreach (var pluginPath in pluginPaths)
         {
@@ -120,8 +106,22 @@ public static class ServiceRegistrations
 
                 var pluginRegistrant = pluginAssembly.CreateInstance<IPluginRegistrant>(pluginRegistrantTypeName!);
 
-                // create services the host doesn't know about
                 pluginRegistrant.Register(mvcBuilder, configuration, configuration, healthProbe);
+
+                var appConfigurantTypeName = pluginAssembly
+                    .GetTypes()
+                    .Single(t => t.GetInterfaces().Any(i => i.Name == nameof(IAppConfigurant)))
+                    .FullName;
+
+                if (string.IsNullOrWhiteSpace(appConfigurantTypeName))
+                {
+                    Log.Information("No configurant found in {pluginPath}", pluginAssembly.FullName);
+                }
+                else
+                {
+                    var appConfigurant = pluginAssembly.CreateInstance<IAppConfigurant>(appConfigurantTypeName);
+                    appConfigurants.Add(appConfigurant);
+                }
             }
             catch (Exception e)
             {
