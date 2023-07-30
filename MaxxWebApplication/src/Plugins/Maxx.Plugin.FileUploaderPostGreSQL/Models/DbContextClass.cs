@@ -1,4 +1,4 @@
-﻿using Maxx.Plugin.FileUploaderPostGreSQL.Extensions;
+﻿using Maxx.Plugin.Common.Extensions;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

@@ -1,5 +1,5 @@
-﻿using Maxx.Plugin.Shared.Abstractions;
-using Maxx.Plugin.TodoListPostGreSQL.Extensions;
+﻿using Maxx.Plugin.Common.Extensions;
+using Maxx.Plugin.Shared.Abstractions;
 using Maxx.Plugin.TodoListPostGreSQL.Models;
 using Maxx.Plugin.TodoListPostGreSQL.Services;
 

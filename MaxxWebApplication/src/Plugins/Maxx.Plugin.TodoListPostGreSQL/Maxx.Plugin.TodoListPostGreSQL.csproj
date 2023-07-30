@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Maxx.Plugin.Common\Maxx.Plugin.Common.csproj" />
     <ProjectReference Include="..\..\Shared\Maxx.Plugin.Shared\Maxx.Plugin.Shared.csproj">
       <Private>false</Private>
       <ExcludeAssets>runtime</ExcludeAssets>

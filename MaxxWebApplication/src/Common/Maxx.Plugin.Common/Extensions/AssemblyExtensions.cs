@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Maxx.Plugin.TodoListPostGreSQL.Extensions;
+namespace Maxx.Plugin.Common.Extensions;
 
 public static class AssemblyExtensions
 {

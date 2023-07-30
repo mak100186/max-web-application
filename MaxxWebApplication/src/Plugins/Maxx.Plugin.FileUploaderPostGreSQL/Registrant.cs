@@ -1,4 +1,4 @@
-﻿using Maxx.Plugin.FileUploaderPostGreSQL.Extensions;
+﻿using Maxx.Plugin.Common.Extensions;
 using Maxx.Plugin.FileUploaderPostGreSQL.Models;
 using Maxx.Plugin.FileUploaderPostGreSQL.Services;
 using Maxx.Plugin.Shared.Abstractions;
