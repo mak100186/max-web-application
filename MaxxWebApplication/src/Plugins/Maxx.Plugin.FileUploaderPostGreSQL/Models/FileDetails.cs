@@ -2,7 +2,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Maxx.Plugin.FileUploaderPostGreSQL.Models;
-[Table("filedetails")]
+
+[Table("FileDetails")]
 public class FileDetails
 {
     [Key]
@@ -10,5 +11,5 @@ public class FileDetails
     public int Id { get; set; }
     public string FileName { get; set; }
     public byte[] FileData { get; set; }
-    public FileType FileType { get; set; }
+    public string FileType { get; set; }
 }

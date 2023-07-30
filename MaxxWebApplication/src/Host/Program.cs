@@ -12,7 +12,7 @@ try
     var app = WebApplication.CreateBuilder(args)
         .ConfigureServices()
         .Build();
-    
+
     app
         .ConfigureDevelopmentEnvironment()
         .AddRequestLogging()

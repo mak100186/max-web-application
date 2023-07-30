@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maxx.Plugin.Shared", "src\S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maxx.Plugin.FileUploaderPostGreSQL", "src\Plugins\Maxx.Plugin.FileUploaderPostGreSQL\Maxx.Plugin.FileUploaderPostGreSQL.csproj", "{2EEBF3A0-50E7-40AF-9BA9-EAFF216C73FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxx.Plugin.TodoListPostGreSQL", "src\Plugins\Maxx.Plugin.TodoListPostGreSQL\Maxx.Plugin.TodoListPostGreSQL.csproj", "{B9C93A30-4340-4B38-A136-8A61761FB041}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2EEBF3A0-50E7-40AF-9BA9-EAFF216C73FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EEBF3A0-50E7-40AF-9BA9-EAFF216C73FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EEBF3A0-50E7-40AF-9BA9-EAFF216C73FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9C93A30-4340-4B38-A136-8A61761FB041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9C93A30-4340-4B38-A136-8A61761FB041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9C93A30-4340-4B38-A136-8A61761FB041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9C93A30-4340-4B38-A136-8A61761FB041}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{69318830-F07B-4EF9-AF78-2618AC17CA2D} = {D6DCD61F-F447-4FF9-B7AE-CB7B560CE574}
 		{3E32131D-6C34-4ADA-8A99-A04735E1166B} = {81730353-0562-485E-8368-D10C7E98C75D}
 		{2EEBF3A0-50E7-40AF-9BA9-EAFF216C73FE} = {A7AA65C3-482F-44D7-A74B-1D41232EFBD8}
+		{B9C93A30-4340-4B38-A136-8A61761FB041} = {A7AA65C3-482F-44D7-A74B-1D41232EFBD8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {420A7D12-738E-40B0-86DF-381D1B008133}

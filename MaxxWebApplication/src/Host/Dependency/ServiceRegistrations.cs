@@ -144,7 +144,7 @@ public static class ServiceRegistrations
                             Path.GetDirectoryName(typeof(Program).Assembly.Location)))))));
 
         var pluginLocation = Path.GetFullPath(Path.Combine(root, relativePath.Replace('\\', Path.DirectorySeparatorChar)));
-        Console.WriteLine($"Loading plugin: {pluginLocation}");
+        Log.Information($"Loading plugin: {pluginLocation}");
 
         var loadContext = new PluginLoadContext(pluginLocation);
 

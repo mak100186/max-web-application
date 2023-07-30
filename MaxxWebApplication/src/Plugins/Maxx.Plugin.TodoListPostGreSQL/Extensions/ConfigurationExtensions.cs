@@ -2,7 +2,7 @@
 
 using Microsoft.Extensions.Configuration;
 
-namespace Maxx.Plugin.FileUploaderPostGreSQL.Extensions;
+namespace Maxx.Plugin.TodoListPostGreSQL.Extensions;
 
 public static class ConfigurationExtensions
 {

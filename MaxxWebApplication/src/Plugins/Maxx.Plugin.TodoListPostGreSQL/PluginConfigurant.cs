@@ -1,5 +1,5 @@
-﻿using Maxx.Plugin.FileUploaderPostGreSQL.Models;
-using Maxx.Plugin.Shared.Abstractions;
+﻿using Maxx.Plugin.Shared.Abstractions;
+using Maxx.Plugin.TodoListPostGreSQL.Models;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Maxx.Plugin.FileUploaderPostGreSQL;
+namespace Maxx.Plugin.TodoListPostGreSQL;
 
 public class PluginConfigurant : IAppConfigurant
 {

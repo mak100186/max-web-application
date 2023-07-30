@@ -30,7 +30,7 @@ public class FileService : IFileService
             {
                 Id = 0,
                 FileName = fileData.FileName,
-                FileType = fileType,
+                FileType = fileType.ToString(),
             };
 
             using (var stream = new MemoryStream())
@@ -58,7 +58,7 @@ public class FileService : IFileService
                 {
                     Id = 0,
                     FileName = file.FileDetails.FileName,
-                    FileType = file.FileType,
+                    FileType = file.FileType.ToString(),
                 };
 
                 using (var stream = new MemoryStream())

@@ -1,9 +1,9 @@
-﻿using Maxx.Plugin.FileUploaderPostGreSQL.Extensions;
+﻿using Maxx.Plugin.TodoListPostGreSQL.Extensions;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace Maxx.Plugin.FileUploaderPostGreSQL.Models;
+namespace Maxx.Plugin.TodoListPostGreSQL.Models;
 
 public class DbContextClass : DbContext
 {
@@ -13,11 +13,11 @@ public class DbContextClass : DbContext
 
     public DbContextClass(IConfiguration configuration) => _configuration = configuration;
 
-    public DbSet<FileDetails> FileDetails { get; set; }
+    public DbSet<TodoDetails> TodosDetails { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        var connectionString = _configuration.GetConnectionString("FileUploaderConnection");
+        var connectionString = _configuration.GetConnectionString("TodoListConnection");
 
         if (string.IsNullOrWhiteSpace(connectionString))
         {
