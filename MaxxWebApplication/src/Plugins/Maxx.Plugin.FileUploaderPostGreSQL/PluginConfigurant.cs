@@ -20,16 +20,18 @@ public class PluginConfigurant : IAppConfigurant
             using var scope = app.Services.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<DbContextClass>();
 
-            var pendingMigrations = dbContext.Database.GetPendingMigrations().ToList();
             var logger = app.Services.GetRequiredService<ILogger<PluginConfigurant>>();
-            if (pendingMigrations.Count > 0)
-            {
-                logger.LogInformation($"Applying pending migrations:\n{string.Join('\n', pendingMigrations)}");
-            }
+
+            var pending = dbContext.Database.GetPendingMigrations();
+
+            logger.LogInformation(
+                pending.Any()
+                    ? $"Applying Migrations :{Environment.NewLine}{string.Join(Environment.NewLine, pending)}"
+                    : "No outstanding migrations");
 
             dbContext.Database.Migrate();
 
-            logger.LogInformation($"{pendingMigrations.Count} Migrations applied");
+            logger.LogInformation($"{pending.Count()} Migrations applied");
         }
     }
 }
