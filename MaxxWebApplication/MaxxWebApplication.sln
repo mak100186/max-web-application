@@ -15,11 +15,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maxx.Plugin.Shared", "src\S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maxx.Plugin.FileUploaderPostGreSQL", "src\Plugins\Maxx.Plugin.FileUploaderPostGreSQL\Maxx.Plugin.FileUploaderPostGreSQL.csproj", "{2EEBF3A0-50E7-40AF-9BA9-EAFF216C73FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxx.Plugin.TodoListPostGreSQL", "src\Plugins\Maxx.Plugin.TodoListPostGreSQL\Maxx.Plugin.TodoListPostGreSQL.csproj", "{B9C93A30-4340-4B38-A136-8A61761FB041}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maxx.Plugin.TodoListPostGreSQL", "src\Plugins\Maxx.Plugin.TodoListPostGreSQL\Maxx.Plugin.TodoListPostGreSQL.csproj", "{B9C93A30-4340-4B38-A136-8A61761FB041}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{02D9EA17-5648-4CB6-9DC9-03BFF376A336}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxx.Plugin.Common", "src\Common\Maxx.Plugin.Common\Maxx.Plugin.Common.csproj", "{52C1DCBE-71B0-4D34-9769-85A87800CBC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maxx.Plugin.Common", "src\Common\Maxx.Plugin.Common\Maxx.Plugin.Common.csproj", "{52C1DCBE-71B0-4D34-9769-85A87800CBC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2590E7C4-4C97-44C9-88AD-4582FD4F7D43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxx.TestCommon", "src\Tests\Maxx.TestCommon\Maxx.TestCommon.csproj", "{A84CECC3-1ADF-478C-936F-CF120CEA86AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maxx.ExampleCode", "src\Tests\Maxx.ExampleCode\Maxx.ExampleCode.csproj", "{08174813-051D-4629-B3CD-E97332FBB4DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +53,14 @@ Global
 		{52C1DCBE-71B0-4D34-9769-85A87800CBC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52C1DCBE-71B0-4D34-9769-85A87800CBC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52C1DCBE-71B0-4D34-9769-85A87800CBC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A84CECC3-1ADF-478C-936F-CF120CEA86AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84CECC3-1ADF-478C-936F-CF120CEA86AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84CECC3-1ADF-478C-936F-CF120CEA86AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84CECC3-1ADF-478C-936F-CF120CEA86AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08174813-051D-4629-B3CD-E97332FBB4DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08174813-051D-4629-B3CD-E97332FBB4DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08174813-051D-4629-B3CD-E97332FBB4DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08174813-051D-4629-B3CD-E97332FBB4DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +71,8 @@ Global
 		{2EEBF3A0-50E7-40AF-9BA9-EAFF216C73FE} = {A7AA65C3-482F-44D7-A74B-1D41232EFBD8}
 		{B9C93A30-4340-4B38-A136-8A61761FB041} = {A7AA65C3-482F-44D7-A74B-1D41232EFBD8}
 		{52C1DCBE-71B0-4D34-9769-85A87800CBC4} = {02D9EA17-5648-4CB6-9DC9-03BFF376A336}
+		{A84CECC3-1ADF-478C-936F-CF120CEA86AD} = {2590E7C4-4C97-44C9-88AD-4582FD4F7D43}
+		{08174813-051D-4629-B3CD-E97332FBB4DB} = {2590E7C4-4C97-44C9-88AD-4582FD4F7D43}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {420A7D12-738E-40B0-86DF-381D1B008133}

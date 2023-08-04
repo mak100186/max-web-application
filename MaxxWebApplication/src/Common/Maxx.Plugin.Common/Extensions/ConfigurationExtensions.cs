@@ -22,4 +22,13 @@ public static class ConfigurationExtensions
             .AddJsonFile(Path.Combine(pluginFolder, $"appsettings.{shortName}.{environmentVariable}.json"), optional: true)
             .Build();
     }
+
+    public static IConfiguration LoadAppSettings(this Type type, string appSettingPathInBin)
+    {
+        var assemblyBin = new FileInfo(Assembly.GetAssembly(type).Location).DirectoryName;
+
+        return new ConfigurationBuilder()
+            .AddJsonFile(Path.Combine(assemblyBin, appSettingPathInBin), optional: false)
+            .Build();
+    }
 }
